@@ -21,7 +21,7 @@ public class LoginService {
      public Member login(String loginId, String password){
 //         Optional<Member> findMemberOptional = memberRepository.findByLoginId(loginId);
 //
-//         Member member = findMemberOptional.get();//.get해서 꺼내온다, 없으면 예외발생
+//         Member member = findMemberOptional.get();//Optional에서 .get하면 안에 있는것이 꺼내진다. 없으면 예외발생
 //
 //         if(member.getPassword().equals(password)){
 //             return member;
