@@ -39,6 +39,7 @@ public class SessionManager {
         Cookie mySessionCookie = new Cookie(SESSION_COOKIE_NAME, sessionId);//쿠키에 키값 "mySessionId", 벨류 sessionId(랜던생성값)넣는다
         response.addCookie(mySessionCookie);
     }
+
     /**
      * 세션조회
      */
