@@ -34,7 +34,7 @@ public class LoginCheckFilter implements Filter {
                 if(session == null || session.getAttribute(SessionConst.LOGIN_MEMBER) == null){ //세션이 null이거나(로그인x), 어트리뷰트가 null이면
 
                     log.info("미인증 사용자 요청{}", requestURI); //로그인 안함
-                    //로그인으로 redirect
+                    //로그인으로 rediKrect
                     //로그인 페이지로 보내고, 로그인했으면 다시 이 페이지(requestURI)로 이동
                     httpResponse.sendRedirect("/login?redirectURL=" + requestURI);
                     return;
