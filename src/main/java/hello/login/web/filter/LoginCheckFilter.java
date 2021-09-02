@@ -29,15 +29,15 @@ public class LoginCheckFilter implements Filter {
             log.info("인증 체크 필터 시작{}", requestURI);
 
             if(isLoginCheckPath(requestURI)){
-                log.info("인증 체크 로직 실행{},", requestURI);
+                log.info("인증 체크 로직 실행{},", requestURI); //화이트리스트가 아니면
                 HttpSession session = httpRequest.getSession(false); //세션이 있는지 확인
                 if(session == null || session.getAttribute(SessionConst.LOGIN_MEMBER) == null){ //세션이 null이거나(로그인x), 어트리뷰트가 null이면
 
                     log.info("미인증 사용자 요청{}", requestURI); //로그인 안함
-                    //로그인으로 rediKrect
+                    //로그인으로 redirect
                     //로그인 페이지로 보내고, 로그인했으면 다시 이 페이지(requestURI)로 이동
                     httpResponse.sendRedirect("/login?redirectURL=" + requestURI);
-                    return;
+                    return; //여기서 리턴하면 컨트롤러호출 안한다.
                 }
             }
             chain.doFilter(request, response); //화이트 리스트면 위의 조건절을 안타고 바로 doFilter로 넘어간다
